@@ -31,9 +31,8 @@ First, I started with directory enumeration using Gobuster:
 gobuster dir -u http://10.X.X.X -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
 
-### 📸 Screenshot
+<img width="1916" height="791" alt="Screenshot 2026-04-22 191049" src="https://github.com/user-attachments/assets/aadddce2-16bb-4535-9409-b9c4cf5d3880" />
 
-*(Insert Screenshot here)*
 
 ---
 
@@ -47,9 +46,7 @@ I accessed it via browser:
 http://10.X.X.X/island
 ```
 
-### 📸 Screenshot
-
-*(Insert Screenshot here)*
+<img width="596" height="239" alt="Screenshot 2026-04-22 191117" src="https://github.com/user-attachments/assets/44aba317-6548-401e-856d-d74984ecf8b8" />
 
 ---
 
@@ -71,9 +68,7 @@ I discovered:
 /2100
 ```
 
-### 📸 Screenshot
-
-*(Insert Screenshot here)*
+<img width="1780" height="348" alt="Screenshot 2026-04-22 194444" src="https://github.com/user-attachments/assets/837c05e1-2743-4bbd-940a-9a7180e1b9ca" />
 
 ---
 
@@ -103,9 +98,8 @@ Found:
 green_arrow.ticket
 ```
 
-### 📸 Screenshot
-
-*(Insert Screenshot here)*
+<img width="686" height="106" alt="Screenshot 2026-04-22 195409" src="https://github.com/user-attachments/assets/47382768-9038-4eba-b3af-b7bc5b3118fb" />
+<img width="1596" height="934" alt="Screenshot 2026-04-22 195319" src="https://github.com/user-attachments/assets/13387bc6-1269-4fe6-b0c5-079fb2f0410a" />
 
 ---
 
@@ -113,17 +107,16 @@ green_arrow.ticket
 
 I attempted further enumeration but found nothing, so I checked the **source code again** and found encoded text.
 
-### 📸 Screenshot
+<img width="699" height="165" alt="Screenshot 2026-04-22 195619" src="https://github.com/user-attachments/assets/24831dc6-0c1e-45ca-9793-b8ac876c8d32" />
 
-*(Insert Screenshot here)*
 
 I decoded it using **CyberChef**:
 
 * Used **Base58 decoding**
 
-### 📸 Screenshot
+<img width="665" height="100" alt="Screenshot 2026-04-22 195913" src="https://github.com/user-attachments/assets/877825eb-0eb4-4f5b-8af3-626df41ec29a" />
+<img width="953" height="507" alt="Screenshot 2026-04-22 195834" src="https://github.com/user-attachments/assets/77dbc724-c67a-42e4-817b-c5929beae12a" />
 
-*(Insert Screenshot here)*
 
 👉 This revealed the **FTP password**
 
@@ -137,15 +130,10 @@ I accessed FTP:
 ftp 10.X.X.X
 ```
 
-### 📸 Screenshot
+<img width="932" height="670" alt="Screenshot 2026-04-22 200456" src="https://github.com/user-attachments/assets/4338dad0-7508-45aa-b319-8dac9773fdcf" />
 
-*(Insert Screenshot here)*
 
 I found **3 PNG files** and downloaded them.
-
-### 📸 Screenshot
-
-*(Insert Screenshot here)*
 
 Then I extracted hidden data:
 
@@ -160,9 +148,8 @@ unzip ss.zip
 cat passwd.txt
 ```
 
-### 📸 Screenshot
+<img width="1789" height="381" alt="Screenshot 2026-04-22 202516" src="https://github.com/user-attachments/assets/0d9e59eb-ddd1-418a-8753-514ae9429879" />
 
-*(Insert Screenshot here)*
 
 👉 Found the SSH password file.
 
@@ -178,9 +165,8 @@ ssh username@10.X.X.X
 
 Initially failed, but after retrying with correct credentials, I successfully logged in.
 
-### 📸 Screenshot
+<img width="597" height="487" alt="Screenshot 2026-04-22 203234" src="https://github.com/user-attachments/assets/03c9feea-311f-4317-9aaa-c3b1d89052b5" />
 
-*(Insert Screenshot here)*
 
 👉 Retrieved **user.txt**
 
@@ -192,9 +178,8 @@ While exploring, I found `/bin/sh` access.
 
 I researched privilege escalation using **pkexec**, which allowed escalation to root.
 
-### 📸 Screenshot
+<img width="1782" height="579" alt="Screenshot 2026-04-22 203545" src="https://github.com/user-attachments/assets/2ad2bd54-58a8-44a2-b8a5-3774bbf50b50" />
 
-*(Insert Screenshot here)*
 
 Then:
 
@@ -202,9 +187,8 @@ Then:
 cat root.txt
 ```
 
-### 📸 Screenshot
+<img width="1919" height="1011" alt="Screenshot 2026-04-22 204131" src="https://github.com/user-attachments/assets/c52699ab-3bce-4f8c-b6a1-d046c54fb78b" />
 
-*(Insert Screenshot here)*
 
 👉 Retrieved **root flag**
 
